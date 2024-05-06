@@ -1,0 +1,19 @@
+
+
+.heading {
+    border-bottom: 5px solid black;
+    font-weight: 700;
+}
+
+.table_col {
+    padding: 8px;
+}
+
+.row {
+    border-bottom: 5px solid rgb(222, 226, 230);
+}
+
+.page_btn {
+    display: block;
+    margin: 10px;
+}

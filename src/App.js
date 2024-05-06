@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import SearchBox from './components/SearchBox/SearchBox';
+import Places from './components/PlacesTable/Places';
+import { fetchPlaces } from './fetchPlacesService';
 
 function App() {
+  const [places, setPlaces] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
+  const [page, setPage] = useState(5);
+
+  useEffect(() => {
+    (async () => {
+
+      const { data } = await fetchPlaces(searchValue, page);
+      setPlaces(data);
+    })()
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} page={page} setPlaces={setPlaces}/>
+      <Places places={places} page={page} />
+      <input type="number" value={page} onInput={(e) => setPage(e.target.value)} />
     </div>
   );
 }

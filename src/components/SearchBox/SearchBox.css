@@ -1,0 +1,13 @@
+.searchbox {
+    width: '241px';
+    height: '38px';
+    font-size: '16px';
+    /* backgroundColor: isDisabled ? 'rgb(233, 236, 239)' : 'rgb(255, 255, 255)',
+    borderColor: value ? '#7952b3' : 'rgb(206, 212, 218)',
+    boxShadow: value ? '0 0 0 3px rgb(121 82 179 / 25%)' : 'none', */
+    padding-top: '6px';
+    padding-bottom: '6px';
+    padding-left: '12px';
+    padding-right: 'as-needed';
+    border-radius: '4px';
+}
